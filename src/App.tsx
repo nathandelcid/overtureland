@@ -7,9 +7,20 @@ import Background from './components/Background';
 import HarpLogo from './assets/harp.svg';
 
 const searchPrompts = [
-  "Am I forcing this or does it flow naturally?",
+  "Am I forcing this bridge or does it rush naturally?",
+  "Combine these vocals to get the best take for my track.",
+  "How to make a synth like the Last Goodbye by ODESZA",
+  "Pick the best sounds in this library for my track.",
+  "Are there any shortcuts or tools that make my DAW setup easier to navigate?",
+  "Create a unique sound that resonates with my drum pattern using Vital.",
+  "What are some common mistakes to avoid in mixing and mastering?",
+  "Mix this track with distortion, balance technical precision .",
+  "How do you know when a track is truly done?",
+  "Organize the drum shots in this sample library to their respective type.",
+  "I feel like quitting this track, how do I stay motivated?",
+  "Teach me how to sound design using Analog.",
   "Why does my master sound worse than the mix?",
-  "Am I using too many plugins?"
+  "Remove any plugins from this track that you deem unnecessary.",
 ];
 
 function Home() {
