@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap');
+
+@font-face {
+  font-family: 'Gwen';
+  src: url('./fonts/Gwen-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+
+.daw-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(40, 44, 52, 0.5) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(40, 44, 52, 0.5) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  transition: transform 0.3s ease-out;
+  transform: perspective(1000px) rotateX(calc((var(--mouse-y) - 50) * 0.05deg))
+    rotateY(calc((var(--mouse-x) - 50) * 0.05deg));
+}
+
+.daw-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    rgba(169, 219, 237, 0.2) 0%,
+    transparent 20%
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+
+.waveform-bg {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    rgba(169, 219, 237, 0.05) 1px,
+    rgba(169, 219, 237, 0.1) 2px,
+    rgba(169, 219, 237, 0.05) 3px,
+    transparent 4px
+  );
+  background-size: 100px 100%;
+  animation: waveformMove 20s linear infinite;
+  opacity: 0.2;
+}
+
+.waveform-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(169, 219, 237, 0.1) 0%,
+    transparent 70%
+  );
+}
+
+.header-container {
+  position: relative;
+  font-family: 'Gwen', serif;
+  letter-spacing: 0.05em;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.header-letter,
+.header-text {
+  font-family: 'Gwen', serif;
+  letter-spacing: 0.05em;
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1px transparent;
+  background: linear-gradient(
+    90deg,
+    rgba(169, 219, 237, 1) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(169, 219, 237, 1) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 1px rgba(169, 219, 237, 0.3),
+    0 0 2px rgba(169, 219, 237, 0.2);
+  animation: shimmer 3s infinite;
+}
+
+.header-letter {
+  text-transform: uppercase;
+}
+
+.header-text {
+  text-transform: none;
+  animation: revealText 1.5s ease-out, shimmer 3s infinite;
+}
+
+.logo-fade-in {
+  animation: fadeIn 2s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.tagline {
+  font-family: 'Crimson Text', serif;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  animation: fadeIn 2s ease-out;
+  animation-fill-mode: forwards;
+  color: white;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.8), 1px -1px 0 rgba(0, 0, 0, 0.8),
+    -1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 0 rgba(0, 0, 0, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.professional {
+  animation: colorPulse 3s ease-in-out infinite;
+}
+
+.search-fade-in {
+  animation: fadeIn 2s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.search-box-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-box-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1rem;
+  pointer-events: none;
+  animation: borderGlow 4s ease-in-out infinite;
+}
+
+.nav-fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease-out;
+  animation-fill-mode: forwards;
+  color: rgba(169, 219, 237, 0.6);
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-fade-in:hover {
+  color: white;
+}
+
+.footer-fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes borderGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(169, 219, 237, 0.2),
+      0 0 10px rgba(169, 219, 237, 0.2), 0 0 15px rgba(169, 219, 237, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(169, 219, 237, 0.4),
+      0 0 20px rgba(169, 219, 237, 0.4), 0 0 30px rgba(169, 219, 237, 0.4);
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealText {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes colorPulse {
+  0%,
+  100% {
+    color: white;
+  }
+  50% {
+    color: #a9dbed;
+  }
+}
+
+@keyframes waveformMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 0;
+  }
+}
