@@ -15,7 +15,6 @@ function Company() {
             className="absolute top-6 sm:top-10 left-0 sm:left-[10%] text-white/60 hover:text-white transition-colors duration-300 z-20 text-base sm:text-lg font-['Gwen'] tracking-wide nav-fade-in flex items-center gap-2"
           >
             <ArrowLeft className="w-5 h-5" />
-            Back
           </Link>
         </div>
       </div>
