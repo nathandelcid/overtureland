@@ -103,7 +103,7 @@ function Home() {
 
         {/* Tagline */}
         <p className="tagline mt-8 sm:mt-12 text-base sm:text-lg font-['Gwen'] px-4 text-center">
-          Your personal <span className="professional">professional</span> music assistant
+        <span className="professional">stay tuned.</span> 
         </p>
       </div>
 
